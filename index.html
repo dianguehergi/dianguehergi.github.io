@@ -3,41 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hergi DIANGUE | Data Scientist & AI Engineer</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <title>Hergi DIANGUE | Data Scientist & IA</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary': '#4C1D95',
-            'accent': '#F59E0B',
-            'dark': '#0F172A',
-            'light': '#F3F4F6'
-          },
-          animation: {
-            'float': 'float 3s ease-in-out infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-12px)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #F3F4F6;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #1e1b4b, #0f172a);
+      color: #f3f4f6;
     }
     .profile-pic {
-      border: 4px solid #4C1D95;
-      box-shadow: 0 10px 25px -5px rgba(76, 29, 149, 0.3);
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #f59e0b;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     }
     .chart-container {
       margin: 2rem auto;
@@ -45,104 +28,115 @@
       background-color: white;
       padding: 1rem;
       border-radius: 1rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .section {
+      padding: 4rem 1rem;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="text-dark">
-  <header class="bg-primary text-white py-10 text-center">
-    <div class="flex flex-col items-center">
-      <img src="https://drive.google.com/uc?export=view&id=1U5VXVpumjZFicad3Dxq-Etc3qWOm8uo3" alt="Photo Hergi DIANGUE" class="w-40 h-40 rounded-full profile-pic animate__animated animate__zoomIn mb-4 object-cover">
-      <h1 class="text-4xl font-bold">Hergi DIANGUE</h1>
-      <p class="text-lg mt-2">Data Scientist & Ingénieur en Intelligence Artificielle</p>
-      <p class="text-sm">Transformer les données en valeur stratégique</p>
-      <div class="mt-4 space-x-3">
-        <a href="https://dianguehergi.github.io" class="btn btn-sm btn-accent">🌐 Portfolio</a>
-        <a href="mailto:hergidiangue018@gmail.com" class="btn btn-sm btn-accent">📧 Email</a>
-        <a href="https://www.linkedin.com/in/hergi-diangue-38b2a1252/" class="btn btn-sm btn-accent">LinkedIn</a>
-        <a href="https://github.com/dianguehergi" class="btn btn-sm btn-accent">GitHub</a>
-      </div>
+<body>
+  <header class="text-center py-10">
+    <img src="https://drive.google.com/uc?export=view&id=1U5VXVpumjZFicad3Dxq-Etc3qWOm8uo3" alt="Photo Hergi DIANGUE" class="profile-pic animate__animated animate__fadeInDown mx-auto">
+    <h1 class="text-4xl font-bold mt-4">Hergi DIANGUE</h1>
+    <p class="text-lg">Data Scientist & Ingénieur IA</p>
+    <p class="text-sm text-gray-300">📍 Paris-Cachan | 📧 hergidiangue018@gmail.com</p>
+    <div class="mt-4 space-x-4">
+      <a href="https://dianguehergi.github.io" class="btn btn-sm btn-accent">🌐 Portfolio</a>
+      <a href="https://www.linkedin.com/in/hergi-diangue-38b2a1252/" class="btn btn-sm btn-accent">LinkedIn</a>
+      <a href="https://github.com/dianguehergi" class="btn btn-sm btn-accent">GitHub</a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4">
-    <section class="py-10">
-      <h2 class="text-3xl font-bold text-center mb-6">Visualisation Dynamique des Compétences</h2>
+  <main class="max-w-6xl mx-auto">
+    <section class="section">
+      <h2 class="text-3xl font-bold text-center mb-6">📊 Radar des Compétences</h2>
       <div class="chart-container">
         <canvas id="skillsChart"></canvas>
       </div>
     </section>
 
-    <section class="py-10">
-      <h2 class="text-3xl font-bold text-center mb-6">Domaines IA explorés</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-semibold text-primary">🧠 Santé - Diagnostic médical</h3>
-          <p>Utilisation de CNN pour détecter la pneumonie dans les radiographies. Projet réalisé chez Substrate AI.</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-semibold text-primary">😊 Éducation - Analyse émotionnelle</h3>
-          <p>Système de reconnaissance d’émotions sur les visages d’enfants avec PyTorch et Streamlit (Bella Image Concept).</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <h3 class="text-xl font-semibold text-primary">👗 Mode - Prévision des tendances</h3>
-          <p>Analyse de séries temporelles et visualisation dans Tableau pour anticiper les tendances fashion (Fashion Trends).</p>
-        </div>
+    <section class="section">
+      <h2 class="text-3xl font-bold text-center mb-6">📈 Langages & Outils (Bar Chart)</h2>
+      <div class="chart-container">
+        <canvas id="barChart"></canvas>
       </div>
     </section>
 
-    <section class="py-10">
-      <h2 class="text-3xl font-bold text-center mb-6">Projets Open Source</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold text-primary">🛰️ Satellite Earth Analytics</h3>
-          <p>Utilisation d’imagerie satellite (Sentinel-2) pour suivre l’évolution de la végétation avec des indices NDVI et Streamlit.</p>
-          <a href="https://github.com/dianguehergi/satellite-earth-analytics" target="_blank" class="text-accent mt-2 inline-block">Voir sur GitHub</a>
+    <section class="section">
+      <h2 class="text-3xl font-bold text-center mb-6">🧠 Répartition des domaines IA</h2>
+      <div class="chart-container">
+        <canvas id="domainChart"></canvas>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="text-3xl font-bold text-center mb-8">🔥 Projets Externes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+        <div class="glass">
+          <h3 class="text-xl font-semibold text-yellow-400 mb-2">Substrate AI - Santé</h3>
+          <p>Détection de pneumonie avec CNN, Dashboards Power BI. +30% précision.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold text-primary">🎯 Customer Segmentation</h3>
-          <p>Clustering K-Means pour analyser les profils clients et recommandations ciblées. Données e-commerce + visualisations.</p>
-          <a href="https://github.com/dianguehergi/customer-segmentation" target="_blank" class="text-accent mt-2 inline-block">Voir sur GitHub</a>
+        <div class="glass">
+          <h3 class="text-xl font-semibold text-yellow-400 mb-2">Bella Concept - Émotions</h3>
+          <p>Reconnaissance d’émotions d’enfants via PyTorch, Streamlit.</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow hover:shadow-xl transition">
-          <h3 class="text-xl font-semibold text-primary">🧠 NLP Résumés Automatiques</h3>
-          <p>Création d’un modèle Transformer pour résumer automatiquement des articles avec Hugging Face + Streamlit.</p>
-          <a href="https://github.com/dianguehergi/nlp-text-summary" target="_blank" class="text-accent mt-2 inline-block">Voir sur GitHub</a>
+        <div class="glass">
+          <h3 class="text-xl font-semibold text-yellow-400 mb-2">Fashion Trends - Mode</h3>
+          <p>ARIMA & Tableau pour visualiser tendances mode sur 6 mois.</p>
         </div>
       </div>
     </section>
   </main>
 
+  <footer class="text-center py-8 text-sm text-gray-300">
+    © 2025 Hergi DIANGUE — Tous droits réservés.
+  </footer>
+
   <script>
-    const ctx = document.getElementById('skillsChart');
-    new Chart(ctx, {
+    new Chart(document.getElementById('skillsChart'), {
       type: 'radar',
       data: {
-        labels: ['Python', 'TensorFlow', 'PyTorch', 'Power BI', 'Tableau', 'SQL', 'OpenCV'],
+        labels: ['Python', 'TensorFlow', 'PyTorch', 'SQL', 'Tableau', 'Power BI', 'Streamlit'],
         datasets: [{
-          label: 'Compétences techniques',
-          data: [9, 8, 8, 7, 7, 6, 8],
-          backgroundColor: 'rgba(76, 29, 149, 0.2)',
-          borderColor: '#4C1D95',
-          borderWidth: 2
+          label: 'Compétences',
+          data: [9, 8, 8, 7, 7, 8, 7],
+          backgroundColor: 'rgba(245,158,11,0.2)',
+          borderColor: '#f59e0b'
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Python', 'SQL', 'Power BI', 'Tableau', 'TensorFlow', 'PyTorch'],
+        datasets: [{
+          label: 'Utilisation dans les projets (%)',
+          data: [95, 80, 70, 65, 60, 55],
+          backgroundColor: '#4C1D95'
         }]
       },
-      options: {
-        responsive: true,
-        scales: {
-          r: {
-            angleLines: { display: false },
-            suggestedMin: 0,
-            suggestedMax: 10
-          }
-        }
+      options: { scales: { y: { beginAtZero: true } } }
+    });
+
+    new Chart(document.getElementById('domainChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Santé', 'Éducation', 'Mode'],
+        datasets: [{
+          label: 'Domaines IA',
+          data: [40, 30, 30],
+          backgroundColor: ['#f59e0b', '#4C1D95', '#10B981']
+        }]
       }
     });
   </script>
-
-  <footer class="bg-primary text-white py-6 text-center mt-10">
-    <p>© 2025 Hergi DIANGUE. Tous droits réservés.</p>
-  </footer>
 </body>
 </html>
