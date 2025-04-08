@@ -144,6 +144,47 @@
       0% { transform: rotate(0deg) }
       100% { transform: rotate(360deg) }
     }
+
+    .contact-form {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(2, 6, 23, 0.5);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+    }
+
+    .diploma-badge {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .diploma-badge::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 55%
+      );
+      animation: chip-glow 6s linear infinite;
+      transform: rotate(45deg);
+    }
   </style>
 </head>
 <body>
@@ -299,6 +340,260 @@
     </div>
   </section>
 
+  <!-- Section Expertise -->
+  <section id="expertise" class="py-20 px-4 bg-gradient-to-b from-dark to-darker">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+        <span class="text-accent neon-accent">Expertise</span> en Intelligence Artificielle
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Carte 1 -->
+        <div class="glass-card p-8 rounded-3xl hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Machine Learning</h3>
+          <p class="text-gray-300 mb-6">
+            Développement de modèles prédictifs avancés pour extraire des insights précieux à partir de vos données.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Algorithmes</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Optimisation</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Scikit-learn</span>
+          </div>
+        </div>
+        
+        <!-- Carte 2 -->
+        <div class="glass-card p-8 rounded-3xl hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Deep Learning</h3>
+          <p class="text-gray-300 mb-6">
+            Conception de réseaux neuronaux complexes pour résoudre des problèmes de vision par ordinateur, NLP et plus.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">TensorFlow</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">PyTorch</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">CNN/RNN</span>
+          </div>
+        </div>
+        
+        <!-- Carte 3 -->
+        <div class="glass-card p-8 rounded-3xl hover:transform hover:scale-105 transition-transform duration-300">
+          <div class="text-accent mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4">Data Science</h3>
+          <p class="text-gray-300 mb-6">
+            Analyse approfondie et visualisation de données pour prendre des décisions basées sur des preuves.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Pandas</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Numpy</span>
+            <span class="px-3 py-1 bg-accent/10 text-accent text-sm rounded-full">Matplotlib</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Diplômes -->
+  <section class="py-20 px-4 bg-darker">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+        <span class="text-accent neon-accent">Certifications</span> et Diplômes
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Diplôme 1 -->
+        <div class="diploma-badge glass-card p-6 rounded-3xl border border-accent/20 relative overflow-hidden">
+          <div class="absolute top-4 right-4 text-accent text-xs font-bold px-2 py-1 rounded-full bg-accent/10">
+            VALIDE
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Master en IA</h3>
+          <p class="text-gray-400 text-sm mb-4">Université Paris-Saclay</p>
+          <p class="text-gray-300 mb-4">Spécialisation en réseaux neuronaux et apprentissage profond.</p>
+          <div class="flex items-center text-sm text-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            2022 - 2024
+          </div>
+        </div>
+        
+        <!-- Diplôme 2 -->
+        <div class="diploma-badge glass-card p-6 rounded-3xl border border-accent/20 relative overflow-hidden">
+          <div class="absolute top-4 right-4 text-accent text-xs font-bold px-2 py-1 rounded-full bg-accent/10">
+            VALIDE
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Data Science</h3>
+          <p class="text-gray-400 text-sm mb-4">Coursera - DeepLearning.AI</p>
+          <p class="text-gray-300 mb-4">Certification en science des données et machine learning avancé.</p>
+          <div class="flex items-center text-sm text-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            2021
+          </div>
+        </div>
+        
+        <!-- Diplôme 3 -->
+        <div class="diploma-badge glass-card p-6 rounded-3xl border border-accent/20 relative overflow-hidden">
+          <div class="absolute top-4 right-4 text-accent text-xs font-bold px-2 py-1 rounded-full bg-accent/10">
+            VALIDE
+          </div>
+          <h3 class="text-xl font-semibold mb-2">TensorFlow Developer</h3>
+          <p class="text-gray-400 text-sm mb-4">Google Certification</p>
+          <p class="text-gray-300 mb-4">Certification officielle de développeur TensorFlow.</p>
+          <div class="flex items-center text-sm text-accent">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            2023
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Contact -->
+  <section id="contact" class="py-20 px-4 bg-gradient-to-t from-dark to-darker">
+    <div class="container mx-auto max-w-6xl">
+      <div class="glass-card rounded-3xl overflow-hidden">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <!-- Partie gauche - Informations -->
+          <div class="p-8 md:p-12 bg-gradient-to-br from-darker to-dark">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+              <span class="text-accent neon-accent">Contactez</span>-moi
+            </h2>
+            <p class="text-lg text-gray-300 mb-8">
+              Vous avez un projet en tête ou souhaitez discuter d'une collaboration ? Laissez-moi un message et je vous répondrai dans les plus brefs délais.
+            </p>
+            
+            <div class="space-y-6">
+              <div class="flex items-start">
+                <div class="text-accent mr-4 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-1">Email</h3>
+                  <a href="mailto:hergidiangue018@gmail.com" class="text-gray-400 hover:text-accent transition-colors">hergidiangue018@gmail.com</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-accent mr-4 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-1">Téléphone</h3>
+                  <a href="tel:+3374515169" class="text-gray-400 hover:text-accent transition-colors">+33 7 45 51 51 69</a>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="text-accent mr-4 mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold mb-1">Localisation</h3>
+                  <p class="text-gray-400">Paris-Cachan, France</p>
+                </div>
+              </div>
+              
+              <div class="pt-4">
+                <h3 class="text-xl font-semibold mb-4">Réseaux sociaux</h3>
+                <div class="flex space-x-4">
+                  <a href="https://www.linkedin.com/in/hergi-diangue-38b2a1252/" class="text-gray-400 hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                  </a>
+                  <a href="https://github.com/dianguehergi" class="text-gray-400 hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </a>
+                  <a href="https://dianguehergi.github.io" class="text-gray-400 hover:text-accent transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Partie droite - Formulaire -->
+          <div class="p-8 md:p-12 contact-form">
+            <h3 class="text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
+            <form class="space-y-4">
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text text-gray-300">Votre nom complet</span>
+                </label>
+                <input type="text" placeholder="Votre nom" class="input input-bordered w-full">
+              </div>
+              
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text text-gray-300">Votre email</span>
+                </label>
+                <input type="email" placeholder="votre@email.com" class="input input-bordered w-full">
+              </div>
+              
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text text-gray-300">Sujet</span>
+                </label>
+                <input type="text" placeholder="Objet de votre message" class="input input-bordered w-full">
+              </div>
+              
+              <div class="form-control">
+                <label class="label">
+                  <span class="label-text text-gray-300">Votre message</span>
+                </label>
+                <textarea class="textarea textarea-bordered h-32" placeholder="Détails de votre projet ou demande"></textarea>
+              </div>
+              
+              <div class="pt-2">
+                <button type="submit" class="btn btn-accent w-full">
+                  Envoyer le message
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-sm text-gray-300 border-t border-gray-800 bg-darker">
+    <div class="container mx-auto px-4">
+      <p>© <span id="year"></span> Hergi DIANGUE — Tous droits réservés.</p>
+      <p class="mt-2">Made with ❤️ and ☕ in Paris</p>
+    </div>
+  </footer>
+
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
@@ -433,6 +728,9 @@
 
       // Créer le réseau de neurones
       createNeuralNetwork();
+
+      // Année actuelle dans le footer
+      document.getElementById('year').textContent = new Date().getFullYear();
     });
   </script>
 </body>
