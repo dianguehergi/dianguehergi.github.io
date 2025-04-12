@@ -156,12 +156,19 @@
       background: rgba(2, 6, 23, 0.5);
       border: 1px solid rgba(245, 158, 11, 0.3);
       transition: all 0.3s ease;
+      color: white;
     }
 
     .contact-form input:focus,
     .contact-form textarea:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.3);
+      outline: none;
+    }
+
+    .contact-form .input::placeholder,
+    .contact-form .textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .diploma-badge {
@@ -184,6 +191,86 @@
       );
       animation: chip-glow 6s linear infinite;
       transform: rotate(45deg);
+    }
+
+    /* Nouveaux styles pour la section contact améliorée */
+    .contact-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(245,158,11,0.05) 0%, transparent 70%);
+      animation: rotate 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg) }
+      100% { transform: rotate(360deg) }
+    }
+
+    .contact-btn {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent 45%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 55%
+      );
+      animation: chip-glow 3s linear infinite;
+      transform: rotate(45deg);
+    }
+
+    .contact-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(245, 158, 11, 0.3);
+    }
+
+    .contact-btn:active {
+      transform: translateY(0);
+    }
+
+    .form-success {
+      display: none;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .form-error {
+      display: none;
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
@@ -491,8 +578,12 @@
   </section>
 
   <!-- Section Contact -->
-  <section id="contact" class="py-20 px-4 bg-gradient-to-t from-dark to-darker">
+  <section id="contact" class="py-20 px-4 contact-section">
     <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+        <span class="text-accent neon-accent">Travaillons</span> Ensemble
+      </h2>
+      
       <div class="glass-card rounded-3xl overflow-hidden">
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <!-- Partie gauche - Informations -->
@@ -545,17 +636,17 @@
               <div class="pt-4">
                 <h3 class="text-xl font-semibold mb-4">Réseaux sociaux</h3>
                 <div class="flex space-x-4">
-                  <a href="https://www.linkedin.com/in/hergi-diangue-38b2a1252/" class="text-gray-400 hover:text-accent transition-colors">
+                  <a href="https://www.linkedin.com/in/hergi-diangue-38b2a1252/" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                   </a>
-                  <a href="https://github.com/dianguehergi" class="text-gray-400 hover:text-accent transition-colors">
+                  <a href="https://github.com/dianguehergi" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
                   </a>
-                  <a href="https://dianguehergi.github.io" class="text-gray-400 hover:text-accent transition-colors">
+                  <a href="https://dianguehergi.github.io" target="_blank" class="text-gray-400 hover:text-accent transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                     </svg>
@@ -568,37 +659,57 @@
           <!-- Partie droite - Formulaire -->
           <div class="p-8 md:p-12 contact-form">
             <h3 class="text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
-            <form class="space-y-4">
+            
+            <!-- Messages d'état du formulaire -->
+            <div id="formSuccess" class="form-success">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-green-400">Votre message a bien été envoyé ! Je vous répondrai dès que possible.</span>
+              </div>
+            </div>
+            
+            <div id="formError" class="form-error">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-red-400">Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.</span>
+              </div>
+            </div>
+            
+            <form id="contactForm" class="space-y-4">
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre nom complet</span>
                 </label>
-                <input type="text" placeholder="Votre nom" class="input input-bordered w-full">
+                <input type="text" id="name" name="name" placeholder="Votre nom" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre email</span>
                 </label>
-                <input type="email" placeholder="votre@email.com" class="input input-bordered w-full">
+                <input type="email" id="email" name="email" placeholder="votre@email.com" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Sujet</span>
                 </label>
-                <input type="text" placeholder="Objet de votre message" class="input input-bordered w-full">
+                <input type="text" id="subject" name="subject" placeholder="Objet de votre message" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre message</span>
                 </label>
-                <textarea class="textarea textarea-bordered h-32" placeholder="Détails de votre projet ou demande"></textarea>
+                <textarea id="message" name="message" class="textarea textarea-bordered h-32" placeholder="Détails de votre projet ou demande" required></textarea>
               </div>
               
               <div class="pt-2">
-                <button type="submit" class="btn btn-accent w-full">
+                <button type="submit" class="btn btn-accent w-full contact-btn">
                   Envoyer le message
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
@@ -622,6 +733,7 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
   <script>
     // Initialisation des particules
     document.addEventListener('DOMContentLoaded', function() {
@@ -757,6 +869,36 @@
 
       // Année actuelle dans le footer
       document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Initialisation d'EmailJS
+      emailjs.init('YOUR_USER_ID'); // Remplacez par votre User ID EmailJS
+
+      // Gestion du formulaire de contact
+      const contactForm = document.getElementById('contactForm');
+      const formSuccess = document.getElementById('formSuccess');
+      const formError = document.getElementById('formError');
+
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Masquer les messages précédents
+        formSuccess.style.display = 'none';
+        formError.style.display = 'none';
+        
+        // Envoyer le formulaire via EmailJS
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+          .then(function(response) {
+            console.log('SUCCESS!', response.status, response.text);
+            // Afficher le message de succès
+            formSuccess.style.display = 'block';
+            // Réinitialiser le formulaire
+            contactForm.reset();
+          }, function(error) {
+            console.log('FAILED...', error);
+            // Afficher le message d'erreur
+            formError.style.display = 'block';
+          });
+      });
     });
   </script>
 </body>
