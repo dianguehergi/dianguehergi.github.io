@@ -6,7 +6,6 @@
   <title>Hergi DIANGUE | Expert Data Science & Intelligence Artificielle</title>
   <meta name="description" content="Portfolio de Hergi DIANGUE, Ingénieur en Intelligence Artificielle et Data Scientist spécialisé en Machine Learning, Deep Learning et analyse de données complexes.">
   
-  <!-- Intégration des librairies -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -30,7 +29,6 @@
       position: relative;
     }
 
-    /* Réseau de neurones animé en arrière-plan */
     .neural-network {
       position: fixed;
       top: 0;
@@ -193,7 +191,6 @@
       transform: rotate(45deg);
     }
 
-    /* Nouveaux styles pour la section contact améliorée */
     .contact-section {
       position: relative;
       overflow: hidden;
@@ -249,19 +246,8 @@
     }
 
     .form-success {
-      display: none;
       background: rgba(16, 185, 129, 0.2);
       border: 1px solid rgba(16, 185, 129, 0.5);
-      padding: 1rem;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    .form-error {
-      display: none;
-      background: rgba(239, 68, 68, 0.2);
-      border: 1px solid rgba(239, 68, 68, 0.5);
       padding: 1rem;
       border-radius: 0.5rem;
       margin-bottom: 1rem;
@@ -271,6 +257,10 @@
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -491,8 +481,9 @@
       </div>
     </div>
   </section>
-<!-- Section Certifications -->
-<section class="py-20 px-4 bg-gradient-to-b from-dark to-darker">
+
+  <!-- Section Certifications -->
+  <section class="py-20 px-4 bg-gradient-to-b from-dark to-darker">
     <div class="container mx-auto max-w-6xl">
       <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative">
         <span class="relative z-10">
@@ -659,53 +650,40 @@
           <!-- Partie droite - Formulaire -->
           <div class="p-8 md:p-12 contact-form">
             <h3 class="text-2xl font-semibold mb-6">Envoyez-moi un message</h3>
-            
-            <!-- Messages d'état du formulaire -->
-            <div id="formSuccess" class="form-success">
-              <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-green-400">Votre message a bien été envoyé ! Je vous répondrai dès que possible.</span>
-              </div>
-            </div>
-            
-            <div id="formError" class="form-error">
-              <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
-                </svg>
-                <span class="text-red-400">Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.</span>
-              </div>
-            </div>
-            
-            <form id="contactForm" class="space-y-4">
+
+            <form 
+              action="mailto:hergidiangue018@gmail.com" 
+              method="post" 
+              enctype="text/plain"
+              class="space-y-4"
+              onsubmit="showSuccessMessage()"
+            >
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre nom complet</span>
                 </label>
-                <input type="text" id="name" name="name" placeholder="Votre nom" class="input input-bordered w-full" required>
+                <input type="text" name="name" placeholder="Votre nom" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre email</span>
                 </label>
-                <input type="email" id="email" name="email" placeholder="votre@email.com" class="input input-bordered w-full" required>
+                <input type="email" name="email" placeholder="votre@email.com" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Sujet</span>
                 </label>
-                <input type="text" id="subject" name="subject" placeholder="Objet de votre message" class="input input-bordered w-full" required>
+                <input type="text" name="subject" placeholder="Objet de votre message" class="input input-bordered w-full" required>
               </div>
               
               <div class="form-control">
                 <label class="label">
                   <span class="label-text text-gray-300">Votre message</span>
                 </label>
-                <textarea id="message" name="message" class="textarea textarea-bordered h-32" placeholder="Détails de votre projet ou demande" required></textarea>
+                <textarea name="body" class="textarea textarea-bordered h-32" placeholder="Détails de votre projet ou demande" required></textarea>
               </div>
               
               <div class="pt-2">
@@ -717,6 +695,16 @@
                 </button>
               </div>
             </form>
+
+            <!-- Message de succès (caché par défaut) -->
+            <div id="mailtoSuccess" class="form-success hidden">
+              <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class="text-green-400">Prêt à envoyer ! Votre client mail va s'ouvrir.</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -733,67 +721,36 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
   <script>
-    // Initialisation des particules
     document.addEventListener('DOMContentLoaded', function() {
-      particlesJS('particles-js', {
-        particles: {
-          number: { value: 80, density: { enable: true, value_area: 800 } },
-          color: { value: "#f59e0b" },
-          shape: { type: "circle" },
-          opacity: { value: 0.5, random: true },
-          size: { value: 3, random: true },
-          line_linked: { enable: true, distance: 150, color: "#f59e0b", opacity: 0.4, width: 1 },
-          move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
-        },
-        interactivity: {
-          detect_on: "canvas",
-          events: {
-            onhover: { enable: true, mode: "repulse" },
-            onclick: { enable: true, mode: "push" }
-          }
-        }
-      });
-
       // Création du réseau de neurones animé
       function createNeuralNetwork() {
         const container = document.getElementById('neuralNetwork');
         const width = window.innerWidth;
         const height = window.innerHeight;
         
-        // Création des neurones
         for (let i = 0; i < 15; i++) {
           const neuron = document.createElement('div');
           neuron.className = 'neuron';
-          
-          const size = Math.random() * 10 + 5;
-          const x = Math.random() * width;
-          const y = Math.random() * height;
-          
-          neuron.style.width = `${size}px`;
-          neuron.style.height = `${size}px`;
-          neuron.style.left = `${x}px`;
-          neuron.style.top = `${y}px`;
-          
-          // Animation aléatoire
+          neuron.style.width = `${Math.random() * 10 + 5}px`;
+          neuron.style.height = neuron.style.width;
+          neuron.style.left = `${Math.random() * width}px`;
+          neuron.style.top = `${Math.random() * height}px`;
           neuron.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite alternate`;
-          
           container.appendChild(neuron);
         }
         
-        // Création des connexions
         const neurons = document.querySelectorAll('.neuron');
         neurons.forEach(neuron1 => {
           neurons.forEach(neuron2 => {
-            if (Math.random() > 0.7) { // 30% de chance de créer une connexion
-              const x1 = parseFloat(neuron1.style.left) + parseFloat(neuron1.style.width) / 2;
-              const y1 = parseFloat(neuron1.style.top) + parseFloat(neuron1.style.height) / 2;
-              const x2 = parseFloat(neuron2.style.left) + parseFloat(neuron2.style.width) / 2;
-              const y2 = parseFloat(neuron2.style.top) + parseFloat(neuron2.style.height) / 2;
+            if (Math.random() > 0.7) {
+              const x1 = parseFloat(neuron1.style.left) + parseFloat(neuron1.style.width)/2;
+              const y1 = parseFloat(neuron1.style.top) + parseFloat(neuron1.style.height)/2;
+              const x2 = parseFloat(neuron2.style.left) + parseFloat(neuron2.style.width)/2;
+              const y2 = parseFloat(neuron2.style.top) + parseFloat(neuron2.style.height)/2;
               
-              const length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-              const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+              const length = Math.sqrt(Math.pow(x2-x1,2) + Math.pow(y2-y1,2));
+              const angle = Math.atan2(y2-y1,x2-x1)*180/Math.PI;
               
               const connection = document.createElement('div');
               connection.className = 'connection';
@@ -801,10 +758,7 @@
               connection.style.left = `${x1}px`;
               connection.style.top = `${y1}px`;
               connection.style.transform = `rotate(${angle}deg)`;
-              
-              // Animation de pulsation
-              connection.style.animation = `pulse ${Math.random() * 3 + 2}s ease-in-out infinite`;
-              
+              connection.style.animation = `pulse ${Math.random()*3+2}s ease-in-out infinite`;
               container.appendChild(connection);
             }
           });
@@ -814,23 +768,23 @@
       // Animation du texte "typing"
       const phrases = [
         "Data Scientist",
-        "Ingénieur IA",
+        "Ingénieur IA", 
         "Expert Machine Learning",
         "Développeur Python"
       ];
       let currentPhrase = 0;
       let currentChar = 0;
-      let typingElement = document.querySelector('.typing-text');
       let isDeleting = false;
+      const typingElement = document.querySelector('.typing-text');
       
       function typeWriter() {
         const fullTxt = phrases[currentPhrase];
         
         if (isDeleting) {
-          typingElement.textContent = fullTxt.substring(0, currentChar - 1);
+          typingElement.textContent = fullTxt.substring(0, currentChar-1);
           currentChar--;
         } else {
-          typingElement.textContent = fullTxt.substring(0, currentChar + 1);
+          typingElement.textContent = fullTxt.substring(0, currentChar+1);
           currentChar++;
         }
         
@@ -839,17 +793,14 @@
           setTimeout(typeWriter, 1500);
         } else if (isDeleting && currentChar === 0) {
           isDeleting = false;
-          currentPhrase = (currentPhrase + 1) % phrases.length;
+          currentPhrase = (currentPhrase+1)%phrases.length;
           setTimeout(typeWriter, 500);
         } else {
           setTimeout(typeWriter, isDeleting ? 50 : 100);
         }
       }
-      
-      // Démarrer l'effet de frappe après un délai
-      setTimeout(typeWriter, 1000);
-      
-      // Gestion du menu mobile
+
+      // Menu mobile
       document.querySelector('.md\\:hidden').addEventListener('click', function() {
         const nav = document.querySelector('.hidden.md\\:flex');
         nav.classList.toggle('hidden');
@@ -864,50 +815,19 @@
         nav.classList.toggle('shadow-xl');
       });
 
-      // Créer le réseau de neurones
+      // Initialisation
       createNeuralNetwork();
-
-      // Année actuelle dans le footer
+      setTimeout(typeWriter, 1000);
       document.getElementById('year').textContent = new Date().getFullYear();
-
-      // Initialisation d'EmailJS
-      emailjs.init('VOTRE_USER_ID_EMAILJS'); // Remplacez par votre User ID EmailJS
-
-      // Gestion du formulaire de contact
-      const contactForm = document.getElementById('contactForm');
-      const formSuccess = document.getElementById('formSuccess');
-      const formError = document.getElementById('formError');
-
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Masquer les messages précédents
-        formSuccess.style.display = 'none';
-        formError.style.display = 'none';
-        
-        // Envoyer le formulaire via EmailJS
-        emailjs.sendForm('service_koqp3mg', 'template_dbscw66', this)
-          .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            // Afficher le message de succès
-            formSuccess.style.display = 'block';
-            // Réinitialiser le formulaire
-            contactForm.reset();
-            // Masquer le message après 5 secondes
-            setTimeout(() => {
-              formSuccess.style.display = 'none';
-            }, 5000);
-          }, function(error) {
-            console.log('FAILED...', error);
-            // Afficher le message d'erreur
-            formError.style.display = 'block';
-            // Masquer le message après 5 secondes
-            setTimeout(() => {
-              formError.style.display = 'none';
-            }, 5000);
-          });
-      });
     });
+
+    // Fonction pour le formulaire mailto
+    function showSuccessMessage() {
+      const successMsg = document.getElementById('mailtoSuccess');
+      successMsg.classList.remove('hidden');
+      setTimeout(() => successMsg.classList.add('hidden'), 3000);
+      return true; // Permet la soumission normale du formulaire
+    }
   </script>
 </body>
 </html>
