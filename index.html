@@ -871,7 +871,7 @@
       document.getElementById('year').textContent = new Date().getFullYear();
 
       // Initialisation d'EmailJS
-      emailjs.init('hergi DIANGUE'); // Remplacez par votre User ID EmailJS
+      emailjs.init('VOTRE_USER_ID_EMAILJS'); // Remplacez par votre User ID EmailJS
 
       // Gestion du formulaire de contact
       const contactForm = document.getElementById('contactForm');
@@ -893,10 +893,18 @@
             formSuccess.style.display = 'block';
             // Réinitialiser le formulaire
             contactForm.reset();
+            // Masquer le message après 5 secondes
+            setTimeout(() => {
+              formSuccess.style.display = 'none';
+            }, 5000);
           }, function(error) {
             console.log('FAILED...', error);
             // Afficher le message d'erreur
             formError.style.display = 'block';
+            // Masquer le message après 5 secondes
+            setTimeout(() => {
+              formError.style.display = 'none';
+            }, 5000);
           });
       });
     });
